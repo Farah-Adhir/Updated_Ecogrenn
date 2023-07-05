@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="ISO-8859-1">
+  <title>ECO GREEN |Admin Login   </title>
+
+    <jsp:include page="layouts/header.jsp"></jsp:include>
+
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    body {
+  background-image: url("https://img.freepik.com/premium-vector/summer-tropical-background-with-copy-space-text-palm-leaves-floral-exotic-hawaiian-wallpaper_651519-758.jpg?w=2000");
+}
+
+.btn-login {
+
+  font-size: 0.9rem;
+
+  letter-spacing: 0.05rem;
+
+  padding: 0.75rem 1rem;
+
+}
+.card{
+	width: 480px !important;
+}
+
+.btn-google {
+
+  color: white !important;
+
+  background-color: #ea4335;
+
+}
+.btn-facebook {
+
+  color: white !important;
+
+  background-color: #3b5998;
+
+}
+
+</style>
+
+</head>
+<body>
+    <div class="page-head_agile_info_w3l"></div>
+
+    <!-- //banner-2 -->
+
+    <!-- page -->
+
+    <div class="services-breadcrumb">
+
+        <div class="agile_inner_breadcrumb">
+
+            <div class="container">
+
+                <ul class="w3_short">
+            
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- //page -->
+
+<!-- log in -->
+
+    <br>
+
+    <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+
+        <div class="card border-0 shadow rounded-5 my-5">
+
+          <div class="card-body p-3 p-sm-5">
+
+            <h3 class="card-title text-center mb-5  fs-5"><b>Admin Login </b></h3>
+           
+				
+                <form th:action="@{/admin}" modelAttribute="AdminLoginForm" method="post">					
+					<!-- error message -->
+					<div th:if="${param.error}">
+						<div class="alert alert-danger">Invalid username or
+							password.</div>
+					</div>
+				
+					<!-- logout message -->
+					<div th:if="${param.logout}">
+						<div class="alert alert-info">You have been logged out.</div>
+					</div>
+					
+					<div class = "form-group mb-3">
+						<label for ="email"> Email </label> :
+						<input type="text" class = "form-control" id ="username" name = "username"
+						placeholder="Enter Email ID" autofocus="autofocus">
+					</div>
+					
+					<div class="form-group mb-3">
+						<label for="password">Password</label>: <input type="password"
+							id="password" name="password" class="form-control"
+							placeholder="Enter Password" />
+					</div>
+					<br >
+					<div class="form-group  ">
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<button type="submit" name="login-submit" id="login-submit"
+									class="btn btn-lg btn-success" value="Log In" >Log In</button>
+							</div>
+						</div>
+					</div>
+					
+				</form>
+				
+			</div>
+	</div>
+	</div>
+</body>
+</html>

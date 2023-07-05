@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: green
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ''
+    url: jdbc:mysql://localhost:3306/green
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook: 
+            clientId: 143098262120729
+            clientSecret: 878d18ae2b979571d1eabadddb759fdd
+          google:
+            clientId: 91579171301-015altftd5jq3p80b4aj4piu7mvmirkf.apps.googleusercontent.com
+            clientSecret: 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
