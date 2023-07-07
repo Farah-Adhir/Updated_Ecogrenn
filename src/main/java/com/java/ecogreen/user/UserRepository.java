@@ -14,7 +14,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     Optional<User> findOneByEmailAndPassword(String email, String password);
 	User findByEmail(String email);
 	static User save(org.springframework.boot.autoconfigure.security.SecurityProperties.User user) {
-		// TODO Auto-generated method stub
+      
 		return null;
 	}
 

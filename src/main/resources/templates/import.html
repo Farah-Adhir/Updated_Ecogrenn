@@ -1,0 +1,15 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Import File</title>
+</head>
+<body>
+
+<a th:href="@{/export}">Export to Excel</a>
+
+<form enctype="multipart/form-data" method="post" th:action="@{/import}">
+    <input name="file" type="file">
+    <input type="submit" value="Import">
+</form>
+
+</body>
+</html>

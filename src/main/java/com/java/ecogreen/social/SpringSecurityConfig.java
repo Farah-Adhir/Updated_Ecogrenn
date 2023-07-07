@@ -28,11 +28,6 @@ public class SpringSecurityConfig {
 	@Autowired
 	AuthenticationSuccessHandler successHandler;
 
-//	@Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-	
 	@Bean
  DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
@@ -53,7 +48,7 @@ public class SpringSecurityConfig {
 //		        .formLogin(admin -> admin.loginPage("/admin").successHandler(successHandler))
 //		        .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/admin"))
         	//  .oauth2Login(admin -> admin.loginPage("/admin").successHandler(successHandler))
-        
+         
                 .formLogin(login -> login.loginPage("/login").successHandler(successHandler))
                 .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login"))
                 .oauth2Login(login -> login.loginPage("/login").successHandler(successHandler));
