@@ -11,22 +11,21 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String password;
-	
+
 	private String phone;
 
 	private String email;
-	 
+
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	
+
 	public User(int id, String name, String email, String password, String phone) {
 		super();
 		this.id = id;
@@ -35,7 +34,7 @@ public class User {
 		this.password = password;
 		this.phone = phone;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -43,8 +42,6 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
 
 	public String getName() {
 		return name;
@@ -78,8 +75,6 @@ public class User {
 		this.phone = phone;
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", phone=" + phone
@@ -89,5 +84,5 @@ public class User {
 	public User orElseThrow(Object object) {
 		return null;
 	}
-	
+
 }

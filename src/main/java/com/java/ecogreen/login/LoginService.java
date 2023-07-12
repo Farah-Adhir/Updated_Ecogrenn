@@ -2,16 +2,12 @@ package com.java.ecogreen.login;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import com.java.ecogreen.admin.Admin;
 import com.java.ecogreen.admin.AdminRepository;
 import com.java.ecogreen.user.User;
@@ -28,12 +24,10 @@ public class LoginService implements UserDetailsService {
 	}
 
 	public User save(User user) {
-
 		return userRepository.save(user);
 	}
 
 	public Admin save(Admin admin) {
-
 		return adminRepository.save(admin);
 	}
 
@@ -42,7 +36,6 @@ public class LoginService implements UserDetailsService {
 
 		User user = userRepository.findByEmail(email);
 		if (user == null) {
-
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
 		SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");

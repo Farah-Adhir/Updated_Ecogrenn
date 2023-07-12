@@ -50,11 +50,15 @@
 								</li>
 							</ul>
 						</li>
-						
+
 					</ul>
 					<div style="float: right;">
-				<H4> Hello &nbsp;&nbsp;<span sec:authentication="principal.username"> ${name}</span>
-			</H4><ul class="nav navbar-nav"><li sec:authorize="isAuthenticated()"><a th:href="@{/login}">Logout</a></li></ul></div>
+						<H4> Hello &nbsp;&nbsp;<span sec:authentication="principal.username"> ${name}</span>
+						</H4>
+						<ul class="nav navbar-nav">
+							<li sec:authorize="isAuthenticated()"><a th:href="@{/login}">Logout</a></li>
+						</ul>
+					</div>
 				</div>
 				<!-- /.navbar-collapse -->
 			</div>
@@ -63,8 +67,8 @@
 		<br>
 		<br>
 		<img
-	src="https://thumbs.dreamstime.com/b/morning-kid-planting-tree-morning-kid-planting-tree-vector-illustration-116141198.jpg">
-     </div>
+			src="https://thumbs.dreamstime.com/b/morning-kid-planting-tree-morning-kid-planting-tree-vector-illustration-116141198.jpg">
+	</div>
 </body>
 
 </html>

@@ -1,9 +1,8 @@
 <html lang="en">
-
 <head>
 	<title>Import File</title>
 
-		<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
@@ -52,14 +51,18 @@
 
 									</ul>
 								</li>
-								
+
 							</ul>
 						</li>
-						
+
 					</ul>
 					<div style="float: right;">
-				<H4> Hello &nbsp;&nbsp;<span sec:authentication="principal.username"> ${name}</span>
-			</H4><ul><li sec:authorize="isAuthenticated()"><a th:href="@{/login}">Logout</a></li></ul></div>
+						<H4> Hello &nbsp;&nbsp;<span sec:authentication="principal.username"> ${name}</span>
+						</H4>
+						<ul class="nav navbar-nav">
+							<li sec:authorize="isAuthenticated()"><a th:href="@{/login}">Logout</a></li>
+						</ul>
+					</div>
 				</div>
 				<!-- /.navbar-collapse -->
 			</div>
@@ -74,14 +77,19 @@
 				<br><br><br><br>
 
 				<form enctype="multipart/form-data" method="post" th:action="@{/import}">
+					<div th:if="${param.error}">
+						<div class="alert alert-danger">Category name is already exists...</div>
+					</div>
 					<input name="file" type="file">
 					<br><br>
 					<input class="btn btn-primary" id="btn" type="submit" value="Import excel file">
 				</form>
 			</center>
-			<div th:if="${param.success}">
-					<div class="alert alert-info">You've successfully Imported!</div>
-				</div>
+			<!--<div th:if="${param.success}">
+				<div class="alert alert-info">You've successfully Imported!</div>
+			</div>-->
+			<div class="alert alert-info" role="alert" th:text="${success}" th:if="${success}"></div>
+			<div class="alert alert-info" role="alert" th:text="${error}" th:if="${error}"></div>
 			<!--<div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>-->
 		</div>
 	</div>

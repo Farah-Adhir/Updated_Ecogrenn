@@ -24,20 +24,32 @@ public class CategoryController {
 	}
 
 	@PostMapping("/import")
-	public String createPostImport(@RequestParam(name = "file") MultipartFile file) throws Exception {
-		categoryService.importExcel(file);
-		 
-		return "redirect:/import?success";
+	public String createPostImport(@RequestParam(name = "file") MultipartFile file,
+			RedirectAttributes redirectAttributes) throws Exception {
+
+		if (file != null && file.getContentType() != null) {
+			categoryService.importExcel(file);
+			redirectAttributes.addFlashAttribute("success",
+					"You successfully uploaded " + file.getOriginalFilename() + "!");
+
+			return "redirect:/import";
+		} else {
+			redirectAttributes.addFlashAttribute("error",
+					"Category Name Already Exists... Duplicate value not accepted" + file.getOriginalFilename() + "!");
+			return "redirect:/import";
+		}
+		// return "redirect:/import?success";
+
 	}
 
 	@GetMapping("/export")
 	@ResponseBody
 	public ResponseEntity<InputStreamResource> excelStudentReport() throws Exception {
 		ByteArrayInputStream in = categoryService.exportExcel();
-		
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-Disposition", "attachment; filename=category.xlsx");
-		
+
 		return ResponseEntity.ok().headers(headers).body(new InputStreamResource(in));
 	}
 

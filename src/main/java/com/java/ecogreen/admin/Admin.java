@@ -9,13 +9,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "admin")
 public class Admin {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String password;
 
 	private String email;
@@ -62,7 +62,6 @@ public class Admin {
 
 	public Admin() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
